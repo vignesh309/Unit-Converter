@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Unit Converter</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Unit Converter</h1>
+      <div class="box">
+        <div class="left-box">
+          <input type="number" id="inputvalue" class="" />
+          <select name="unit-from" id="unit-from">
+            <option value="km">kilometre(km)</option>
+            <option value="m">metre(m)</option>
+            <option value="cm">centimetre(cm)</option>
+            <option value="mm">millimetre(mm)</option>
+            <option value="um">micrometre(um)</option>
+            <option value="nm">nanometre(nm)</option>
+            <option value="mi">miles(mi)</option>
+            <option value="yd">yard(yd)</option>
+            <option value="ft">Feet(ft)</option>
+            <option value="in">Inch(in)</option>
+          </select>
+        </div>
+        <div class="right-box">
+          <input type="number" id="outputvalue" class="" disabled />
+          <select name="unit-to" id="unit-to">
+            <option value="km">kilometre(km)</option>
+            <option value="m">metre(m)</option>
+            <option value="cm">centimetre(cm)</option>
+            <option value="mm">millimetre(mm)</option>
+            <option value="um">micrometre(um)</option>
+            <option value="nm">nanometre(nm)</option>
+            <option value="mi">miles(mi)</option>
+            <option value="yd">yard(yd)</option>
+            <option value="ft">Feet(ft)</option>
+            <option value="in">Inch(in)</option>
+          </select>
+        </div>
+      </div>
+      <button class="convert" onclick="convertunit()">Convert</button>
+    </div>
+    <script>
+      var userinput = document.getElementById("inputvalue");
+      function convertunit() {
+        var length = userinput.value;
+        var from_unit = document.getElementById("unit-from").value;
+        var to_unit = document.getElementById("unit-to").value;
+
+        switch (from_unit) {
+          case "km":
+            var result = length * 1000000;
+            break;
+          case "m":
+            var result = length * 1000;
+            break;
+          case "cm":
+            var result = length * 10;
+            break;
+          case "mm":
+            var result = length;
+            break;
+          case "um":
+            var result = length / 1000;
+            break;
+          case "nm":
+            var result = length / 1000000;
+            break;
+          case "mi":
+            var result = length * 1609344;
+            break;
+          case "yd":
+            var result = length * 914.4;
+            break;
+          case "ft":
+            var result = length * 304.8;
+            break;
+          case "in":
+            var result = length * 25.4;
+        }
+
+        switch (to_unit) {
+          case "km":
+            var output = result / 1000000;
+            break;
+          case "m":
+            var output = result / 1000;
+            break;
+          case "cm":
+            var output = result / 10;
+            break;
+          case "mm":
+            var output = result;
+            break;
+          case "um":
+            var output = result * 1000;
+            break;
+          case "nm":
+            var output = result * 1000000;
+            break;
+          case "mi":
+            var output = result / 1609344;
+            break;
+          case "yd":
+            var output = result / 914.4;
+            break;
+          case "ft":
+            var output = result / 304.8;
+            break;
+          case "in":
+            var output = result / 25.4;
+        }
+        document.getElementById("outputvalue").value = output;
+        console.log(result);
+        console.log(output);
+      }
+    </script>
+  </body>
+</html>
